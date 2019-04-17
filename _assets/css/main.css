@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.loader{
+    position: absolute; 
+    top: 180px;
+    left: 45%;
+}
+
+.containerc {
+	background-image :url(https://i.imgur.com/ufnjAjQ.jpg);
+	background-size: cover; background-position:center; background-repeat:no-repeat; height:100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.containerc .row {
+  margin: 0 auto;
+}
+
+/* label color */
+form .input-field label{
+    color: #333;
+ }
+
+.colordon {
+background-color: #000000 !important;	
+}
+.colorfadedon{
+background-color: #000000 !important;
+}
+.colortextdon{
+color: #000000 !important;
+}
+.colorfadetextdon{
+color: #000000 !important;
+}
+.colorrec{
+background-color: #000000 !important;	
+}
+.colorfaderec{
+background-color: #000000 !important;	
+}
+.colortextrec{
+color: #000000 !important;
+}
+.colorfadetextrec{
+color: #000000 !important;
+}
+.colorbrand{
+background-color: #000000 !important;	
+}
+.colorfadebrand{
+background-color: #000000 !important;
+}
+.colortextbrand{
+color: #000000 !important;
+}
+.colorfadetextbrand{
+color: #000000 !important;
+}
+.colordark{
+background-color: #000000 !important;	
+}
+.colorfadedark{
+background-color: #000000 !important;	
+}
+.colortextdark{
+color: #000000 !important;
+}
+.colorfadetextdark{
+color: #000000 !important;
+}
+.colortitletext{
+color: #000000 !important;
+}
+.overlay{
+background-color: rgba(0,0,0,0.5); background-size: cover;	
+}
+.imagebrand{
+background-image :url(https://i.imgur.com/pwRcDNu.png);
+}
+.imagelogo{
+	content: url("https://i.imgur.com/IRkldcO.png");
+	
+}
+.bckgrndcolor{
+	background-color: #e4e4e4 !important;
+	
+}
+

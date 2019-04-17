@@ -1,0 +1,28 @@
+
+.navbar {
+opacity:1;
+}
+
+#home-section {
+    background: url(../img/bckgrnds/space6.jpg) no-repeat;
+    min-height: 700px; background-size:cover; background-attachment:fixed;
+}
+.dark-overlay{
+    background-color: rgba(0,0,0,0.5);
+    position:absolute;
+    top:0;left:0; width: 100%;
+    min-height: 700px;
+}
+.home-inner{
+    padding-top:50px;
+}
+.card-form{
+    opacity:0.9;
+}
+
+.invalid {
+    border-color: red;
+}
+.valid {
+    border-color: green;
+}

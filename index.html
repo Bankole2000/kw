@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--TODO: FINAL PRODUCTION: Background Image -->
+<!--TODO: FINAL PRODUCTION: Remove Logout Button  -->
+<!--TODO: FINAL PRODUCTION: Setup GOOGLE and FACEBOOK Login systems Using JDKs  -->
+<!--TODO: FINAL PRODUCTION: Change Logo and Name from INSTAGRAM to FINAL NAME  -->
+<!--TODO: FINAL PRODUCTION: SETUP SIGN UP EMAIL  -->
+<!--TODO: FINAL PRODUCTION: REMOVE Vue.JS connection and file  -->
+<!--TODO: FINAL PRODUCTION: RUN FINAL CHECKS Check Modals etc Change default Password Maybe  -->
+    <!--Import Font Awesome-->
+    <link href="_assets/fonts/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="_assets/fonts/svg-with-js/css/fa-svg-with-js.css" rel="stylesheet">
+<!--    <link type="text/css" rel="stylesheet" href="_assets/css/main.css" />-->
+    <link sizes="192x192" rel="icon" href="https://i.imgur.com/gXBVYAM.png" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="_assets/css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="theme-color" contents="#26a69a">
+   <meta name="google-signin-client_id" content="497862420570-27s31vfdg0uk55n7v3nmklsmqfumf4o7.apps.googleusercontent.com">
+
+   
+    <style>
+	body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.loader{
+    position: absolute; 
+    top: 180px;
+    left: 45%;
+}
+.containerc {
+	background-image :url(https://i.imgur.com/ufnjAjQ.jpg);
+	background-size: cover; background-position:center; background-repeat:no-repeat; height:100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+.containerc .row {
+  margin: 0 auto;
+}
+
+/* label color */
+form .input-field label{
+    color: #333;
+ }
+
+.colordon {
+background-color: #ff8a65 !important;	
+}
+.colorfadedon{
+background-color: #ff8a65 !important;
+}
+.colortextdon{
+color: #ff8a65 !important;
+}
+.colorfadetextdon{
+color: #ff8a65 !important;
+}
+.colorrec{
+background-color: #26a69a !important;	
+}
+.colorfaderec{
+background-color: #26b69b !important;	
+}
+.colortextrec{
+color: #26a69a !important;
+}
+.colorfadetextrec{
+color: #26b69b !important;
+}
+.colorbrand{
+background-color: #26a69a !important;	
+}
+.colorfadebrand{
+background-color: #26a69a !important;
+}
+.colortextbrand{
+color: #0091ea !important;
+}
+.colorfadetextbrand{
+color: #0091ea !important;
+}
+.colordark{
+background-color: #000000 !important;	
+}
+.colorfadedark{
+background-color: #000000 !important;	
+}
+.colortextdark{
+color: #000000 !important;
+}
+.colorfadetextdark{
+color: #000000 !important;
+}
+.colortitletext{
+color: #000000 !important;
+}
+.overlay{
+background-color: rgba(0,0,0,0.5); background-size: cover;	
+}
+.imagebrand{
+background-image :url(https://i.imgur.com/pwRcDNu.png);
+}
+.imagelogo{
+	content: url("https://i.imgur.com/IRkldcO.png");
+	
+}
+.bckgrndcolor{
+	background-color: #e4e4e4 !important;
+	
+}
+	</style>
+    
+    
+    <title>KoboWise - Login </title>
+
+</head>
+
+<body>
+
+
+    <div class="containerc section">
+        <div class="row valign-wrapper">
+            <div class="col s12 m12 l12">
+                <div class="center"><img class="imagelogo responsive-img" src="" style="width:220px;"></div>
+                <div class="card-panel" style="background-color: rgba(255,255,255,0.7); margin:5px; padding-top:5px;">
+
+                    <div class="card-content center">
+                      
+                       <div class="logincover" style="display:block; padding-bottom:4px;"> <!-- Login Form Begins Here--> 
+                           <form action="" id="loginform" submit="false">
+                            <div class="input-field">
+
+                                <input id="email2" type="email" name="email" required>
+                                <label for="email"><i class="fa fa-envelope"></i>&nbsp;Email &nbsp; <span id="lemail"></span><span class="grey-text" id="loader_logemail" style="display:none;"> Checking <i class="fas fa-spinner fa-pulse"></i></span><span class="grey-text" id="error_logemail" style="display:none;"> Connection Error <i class="fas fa-broadcast-tower"></i></span></label>
+                            </div>
+                            <div class="input-field">
+
+                                <input id="password" type="password" name="password" required>
+                                <label for="password"><i class="fa fa-lock"></i>&nbsp;Password &nbsp;<span id="lpassword"></span></label>
+                                
+                            </div>
+                            <div class="row" style="padding-bottom:5px; margin-top: -10px;" id="forgot_password1"></div>
+                      <div id="loader_login" style="display:none;"><p class="grey-text center ">Logging In</p><div class="progress">
+      <div class="indeterminate"></div>
+  </div></div>      <p class="grey-text center" id="error_login" style="display:none;">Connection Error <i class="fas fa-broadcast-tower"></i></p> 
+                            <button class="btn colorbrand waves-effect waves-light" type="button" name="" id="loginbtn" style="display:block; width:100%;">Log in &nbsp; 
+    <i class="fa fa-power-off"></i>
+    </button>
+
+                        </form>
+                          
+                           <a class="formsignup"><p class="center colortextbrand"><span class="black-text">New to KoboWise?</span> Sign Up / Create a New Account &nbsp; <i class="fa fa-caret-right"></i></p></a>
+                           </div> <!-- Login Form Ends here-->
+                           
+                           <div class="signupcover" style="padding-bottom:4px; display:none"> <!--Signup Form Begins here-->
+                           <form action="" id="signupform">
+                            <div class="input-field" style="display:flex;">
+
+                               <div class="input-field" style="flex:20;">
+
+                                <input id="firstname" type="text" name="firstname" required>
+                                <label for="firstname"><i class="fa fa-user" data-fa-transform="left-5"></i>FirstName <span class="red-text" id="fname"></span></label>
+                                
+                            </div> 
+                            <div class="input-field" style="flex:18;">
+
+                                <input id="surname" type="text" name="surname" required>
+                                <label for="surname"><i class="fa fa-user" data-fa-transform="left-5"></i>Surname <span class="red-text" id="sname"></span></label>
+                                
+                            </div> 
+                            </div>
+                            <div class="input-field" style="display:flex;">
+
+                               <div class="input-field" style="flex:9;">
+
+                                <input id="email1" type="email" name="email" required>
+                                <label for="email1" class="validate"><i class="fa fa-envelope" data-fa-transform="left-5"></i>Email <span id="semail"></span><span class="grey-text" id="loader_signemail" style="display:none;"> Checking <i class="fas fa-spinner fa-pulse"></i></span><span class="grey-text" id="error_signemail" style="display:none;"> Connection Error <i class="fas fa-broadcast-tower"></i></span></label>
+                                
+                            </div> 
+                            <div class="input-field" style="flex:4;">
+                            <select name="gender" id="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    </select>
+    <label>Gender</label>
+                                
+                            </div> 
+                            </div>
+                            <div id="loader_signup" style="display:none;"><p class="grey-text center ">Signing Up</p><div class="progress">
+      <div class="indeterminate"></div>
+  </div></div>     <p class="grey-text center" id="error_signup" style="display:none;">Connection Error <i class="fas fa-broadcast-tower"></i></p> 
+                            <button class="colorbrand btn waves-effect waves-light" id="signupbtn" type="button" name="" style="width:100%;">Sign Up &nbsp; 
+    <i class="fa fa-paper-plane"></i>
+    </button>
+
+                        </form>
+                           <a class="formlogin"><p class="center colortextbrand"><span class="black-text">Already Registered?</span> Log in to your account&nbsp;<i class="fa fa-caret-right"></i></p></a>
+                           </div> <!-- Signup Form Ends here-->
+                           
+                        <hr>
+                        <p class="center" style="margin-top:-19px;"><span style="background-color:rgba(255,255,255,1); color:black; padding:5px;">OR</span></p>
+                        <div style="display: flex; padding-bottom:15px;">
+                            <a href="#modal4" class="btn red waves-effect waves-light modal-trigger" style="flex:1;">Sign in with google &nbsp; <i class="fab fa-google"></i></a>
+
+                        </div>
+                        <div style="display: flex; padding-bottom:0px;">
+                            <a href="#modal5" class="btn blue accent-2 waves-effect waves-light modal-trigger" style="flex:1;">Sign in with facebook &nbsp; <i class="fab fa-facebook" data-fa-transform="grow-3"></i></a>
+
+                        </div>
+                      </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--	FLOATING ACTION BUTTON HERE      -->
+ <!-- ====================== FLOATING ACTION BUTTON ======================== -->
+    <div class="fixed-action-btn toolbar click-to-toggle">
+        <a id = "quick_menu" class="btn-floating btn-large pulse colorbrand waves-effect waves-light">
+    <i class="fas fa-bars fa-2x" data-fa-transform="down-4"></i>
+  </a>
+        <ul>
+           <li><a id="profile" data-target="view_demo_modal" class="colorbrand waves-effect waves-light tooltipped" data-tooltip="View Demo" data-position="top"><i class="fas fa-eye fa-lg" data-fa-transform="down-1"></i></a></li>
+            <li><a id ="don_notify" data-target="visit_site_modal" class="tooltipped waves-effect waves-light colorbrand" data-tooltip="Visit Main Site" data-position="top"><i class="fas fa-desktop fa-lg" data-fa-transform="down-1"></i></a></li>
+            <li><a id="rec_notify" data-target="view_chat_modal" class="tooltipped waves-effect waves-light colorbrand" data-tooltip="View Chatroom" data-position="top"><i class="fas fa-comment-dots fa-lg" data-fa-transform="down-1"></i></a></li>
+            <li><a id ="support_notify" class="tooltipped colorbrand waves-effect waves-light modal-trigger" data-target="forgot_email" data-tooltip="Forgot Password?" data-position="top"><i class="fas fa-user-lock fa-lg" data-fa-transform="down-1"></i></a></li>
+           
+        </ul>
+    </div>
+    <!-- ==================== END OF FLOATING ACTION BUTTON =================== -->
+   
+
+<!--	FLOATING ACTION BUTTON HERE      -->
+<!-- MODALS BEGIN HERE-->
+
+<div id="modal1" class="modal">
+    <div class="modal-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="colortextbrand"><i class="fa fa-user-plus fa-sm"></i>&nbsp; Registeration Successful</h5>
+        <p class="flow-text"><strong>Hello <span id="successname" class="orange-text text-darken-2"></span>, You're almost there.</strong> You should recieve an <span class="orange-text text-darken-2">email</span> with your <span class="orange-text text-darken-2">login details</span> in <i>a few minutes</i>. Please Check your email and <a class="colortextbrand">Sign in.</a></p>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-light btn colorbrand">Okay</a>
+    </div>
+  </div>
+         
+<div id="modal2" class="modal">
+    <div class="modal-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="colortextbrand"><i class="fa fa-check-circle fa-sm"></i>&nbsp; Login Successful</h5>
+        <p class="flow-text"><strong>Hello <span id="loginname" class="orange-text text-darken-2"></span>, Welcome to KoboWise.</strong> Please be sure to <span class="colortextbrand">update your <b>Profile details</b></span> and &#40; for security purposes &#41; <span class="colortextbrand">Change your password.</span>  </p>
+    </div>
+    <div class="modal-footer">
+      <a href="user/index.php" class=" modal-action modal-close waves-effect waves-light btn colorbrand">Okay</a>
+    </div>
+  </div>
+   
+   <div id="modal3" class="modal">
+    <div class="modal-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="colortextbrand"><i class="fa fa-check-circle fa-sm"></i>&nbsp; Login Successful</h5>
+        <p class="flow-text"><strong>Hi <span id="loginname2" class="orange-text text-darken-2"></span>, Welcome Back.</strong></p><hr><p class="flow-text">&#9654; &nbsp; Keep your profile updated.<br/>&#9654; &nbsp; Attend to any notifications. </p>
+    </div>
+    <div class="modal-footer">
+      <a href="user/index.php" class=" modal-action modal-close waves-effect waves-light btn colorbrand">Okay</a>
+    </div>
+  </div>
+          
+    <div id="modal4" class="modal modal-fixed-footer">
+    <div class="modal-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="blue-text"><i class="red-text fab fa-google fa-sm" data-fa-transform="up-2"></i>&nbsp; Sign in with Google?</h5>
+        <p>Please wait while the <span class="red-text">Google</span> Sign In button loads &#40;If it does not appear in 30 seconds, or you an unable to sign in via <span class="red-text">Google</span>, please check your internet connection, or Sign up/Log in with you email.&#41;</p>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<div id="ggldetails" style="display:none;"><p class="flow-text">Sign in as:</p>
+		<p class="flow-text">Profile Image: &nbsp;<img class="circle" id="gglimg" src="" alt=""></p>
+			<p class="flow-text">First Name: &nbsp;<b><span id="gglfname"></span></b></p>
+			<p class="flow-text">Last Name: &nbsp;<b><span id="ggllname"></span></b></p>
+			<p class="flow-text">Email: &nbsp;<b><span id="gglemail"></span></b></p>
+			<div class="input-field">
+                            <select name="gglgender" id="gglgender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    </select>
+		 <label>Select Gender</label></div>
+			 <p class="flow-text"><strong>Hello <span id="gglsuccessname" class="orange-text text-darken-2"></span>.</strong> If this Your first time Signing in with <span class="red-text">Google</span>, you should recieve an <span class="orange-text text-darken-2">email</span> with your <span class="orange-text text-darken-2">login details and Password</span>. You can update these details once you are logged in or use these details to login later. If this is NOT your first time, then please ignore this message.</p>
+     
+     <div id="loader_gglsignin" style="display:none;"><p class="grey-text center ">Signing In</p><div class="progress">
+      <div class="indeterminate"></div>
+  </div></div><p class="grey-text" id="error_gglsignin" style="display:none;">Connection Error <i class="fas fa-broadcast-tower"></i></p>      
+      <button type="button" name="" class="btn-large waves-effect waves-light colorbrand white-text text-lighten-1" id="gglsignin" style= "width:100%; margin-bottom:10px;"> Sign in &nbsp;<i class="fab fa-google"></i></button>
+       </div>
+       
+       
+    </div>
+    <div class="modal-footer">
+      <a id="gglcancel" class=" modal-action modal-close waves-effect waves-light btn red">cancel</a>
+    </div>
+  </div>
+  
+  <div id="modal5" class="modal modal-fixed-footer">
+    <div class="modal-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="blue-text"><i class="blue-text text-darken-1 fab fa-facebook" data-fa-transform="grow-2 up-2"></i>&nbsp; Sign in with Facebook?</h5>
+        
+        <p>Please wait while the <span class="blue-text text-darken-3">Facebook</span> Sign In button loads &#40;If it does not appear in 30 seconds, or you are unable to Sign in Via <span class="blue-text text-darken-3">Facebook</span>, please check your internet connection, or Sign Up/Log in with your email.&#41;</p>
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true" onlogin="checkLoginState();" ></div>
+        <div id="fbdetails" style="display:none;">
+        <p class="flow-text">Sign in as:</p>
+		<p class="flow-text">Profile Image: &nbsp;<img class="circle" id="fbimg" src="" alt=""></p>
+		<p class="flow-text">First Name: &nbsp;<b><span id="fbfname"></span></b></p>
+			<p class="flow-text">Last Name: &nbsp;<b><span id="fblname"></span></b></p>
+			<p class="flow-text">Email: &nbsp;<b><span id="fbemail"></span></b></p>
+			<div class="input-field">
+                            <select name="gglgender" id="gglgender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    </select>
+		 <label>Select Gender</label></div>
+         <p class="flow-text"><strong>Hello <span id="fbsuccessname" class="orange-text text-darken-2"></span>.</strong> If this Your first time Signing in with <span class="blue-text text-darken-3">Facebook</span>, you should recieve an <span class="orange-text text-darken-2">email</span> with your <span class="orange-text text-darken-2">login details and Password</span>. You can update these details once you are logged in or use these details to login later. If this is NOT your first time, then please ignore this message.</p>
+        
+        <div id="loader_fbsignin" style="display:none;"><p class="grey-text center ">Signing In</p><div class="progress">
+      <div class="indeterminate"></div>
+  </div></div>   <p class="grey-text" id="error_fbsignin" style="display:none;">Connection Error <i class="fas fa-broadcast-tower"></i></p>   
+        <button type="button" name="" class="btn-large waves-effect waves-light colorbrand white-text" id="fbsignin" style= "width:100%; margin-bottom:10px;"> Sign in &nbsp;<i class="fab fa-facebook" data-fa-transform="grow-3"></i></button>
+         </div>
+        
+         <div id="fbprofile" style="display:none;"></div>
+    </div>
+    <div class="modal-footer">
+      <a id="fbcancel" class=" modal-action modal-close waves-effect waves-light btn red">Cancel</a>
+    </div>
+  </div>
+
+  <div id="forgot_email" class="modal modal-fixed-footer">
+    <div class="modal-content" style="padding-bottom: 0px; margin-bottom: 0px;">
+        <h5 class="colortextbrand"><i class="colortextbrand fa fa-unlock-alt" data-fa-transform="grow-2 up-2"></i>&nbsp; Forgot Password?</h5>
+       
+        <p class="flow-text">It seems you lost your password? To Retrieve your password Simply enter you email below. 
+        </p>
+        <div class="input-field" style="flex:1;">
+
+                                <input id="fgtemail" type="email" name="email">
+                                <label for="fgtemail" class="validate"><i class="fa fa-envelope" data-fa-transform="left-5"></i>Email <span id="fgtemail2"></span><span class="grey-text" id="loader_fgtemail" style="display:none;"> Checking <i class="fas fa-spinner fa-pulse"></i></span><span class="grey-text" id="error_fgtemail" style="display:none;"> Connection Error <i class="fas fa-broadcast-tower"></i></span></label>
+                                
+                            </div> 
+                            <input type="hidden" id="fgtuser_id" value="">
+                            <input type="hidden" id="fgtpassword" value="">
+        <button id="fgtemailbtn" class="btn colorbrand waves-effect waves-light" style="width:100%; margin-bottom: 10px;">Recover Password</button>
+        
+    </div><br>
+    <div class="modal-footer">
+      <a id="frgtpwdcancel" class=" modal-action modal-close waves-effect waves-light btn red">Cancel</a>
+    </div>
+  </div>
+  
+      <!-- Preloader -->
+    <div class="loader preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+    <!-- ================ END OF FOOTER ========================= -->
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="_assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="_assets/js/materialize.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="_assets/js/preload.js"></script>
+    <script type="text/javascript" src="_assets/js/formtoggle.js"></script>
+<!--    <script type="text/javascript" src="_assets/js/loginvalidation.js"></script>-->
+    <script type="text/javascript" src="_assets/fonts/svg-with-js/js/fontawesome-all.min.js"></script>
+
+
+<script>
+	var timeout = 5000;
+	$('.modal').modal();   
+    
+    var firstname="";
+    var lastname="";
+    var email="";
+    var gender ="";
+    var lemail="";
+    var password ="";
+    var name_reg=/^[a-z]{3,}$/i;
+    var email_reg=/^[a-z]+(_|\.)?[a-z0-9]*@[a-z]+\.[a-z]{2,}$/i;
+    var password_reg=/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$/i;
+    var dfltpassword = "Password1234";
+	
+//    First Name Validation 
+	
+    $("#firstname").focusin(function(){
+		$("#firstname").removeClass("invalid").removeClass("valid");
+            $("#fname").html("");
+	})
+	
+    $("#firstname").focusout(function(){
+        
+        var storefirstname = $("#firstname").val();
+        if(storefirstname.length == ""){
+            $("#firstname").addClass("invalid").removeClass("valid");
+            $("#fname").html("Empty").removeClass("green-text").addClass("red-text");
+            firstname = storefirstname;
+//            firstname = "";
+        }else if(name_reg.test(storefirstname)){
+            
+            $("#firstname").removeClass("invalid").addClass("valid");
+            $("#fname").html("OK").removeClass("red-text").addClass("green-text");
+            firstname = storefirstname;
+           
+        }else{
+            $("#firstname").removeClass("valid").addClass("invalid");
+            $("#fname").removeClass("green-text").addClass("red-text").html("Abc! >2");;
+            firstname = storefirstname;
+             
+                
+            }
+        })
+//    End of First name Validation 
+    $("#surname").focusin(function(){
+		$("#surname").removeClass("invalid").removeClass("valid");
+            $("#sname").html("");
+		
+	})
+    //    Last Name Validation 
+    $("#surname").focusout(function(){
+        
+        var storelastname = $("#surname").val();
+        if(storelastname.length == ""){
+            $("#surname").addClass("invalid").removeClass("valid");
+            $("#sname").html("Empty").removeClass("green-text").addClass("red-text");
+            lastname = storelastname;
+//            lastname = "";
+        }else if(name_reg.test(storelastname)){
+            
+            $("#surname").removeClass("invalid").addClass("valid");
+            $("#sname").html("OK").removeClass("red-text").addClass("green-text");
+            lastname = storelastname;
+           
+        }else{
+            $("#surname").removeClass("valid").addClass("invalid");
+            $("#sname").removeClass("green-text").addClass("red-text").html("Abc! >2");
+//            lastname = storelastname;
+             lastname = "0";
+                
+            }
+        })
+//    End of Last name Validation 
+    $("#email1").focusin(function(){
+		$("#semail").html("");
+		$("#email1").removeClass("invalid").removeClass("valid");
+		$('#error_signemail').hide();
+		$('#loader_signemail').hide();
+	})
+    //  Signup Email Validation 
+    $("#email1").focusout(function(){
+        $('#loader_signemail').show();
+        $('#error_signemail').hide();
+        var storeemail = $("#email1").val();
+        if(storeemail.length == ""){
+            $("#email1").addClass("invalid").removeClass("valid");
+            $("#semail").html("Required").removeClass("green-text").addClass("red-text");
+			$('#loader_signemail').hide();
+//            email = "";
+        }else if(email_reg.test(storeemail)){
+            $("#semail").html("");
+            $.ajax({
+               url : 'ajax/signup.php',
+               method : 'POST',
+               data : {
+                    signupemail: storeemail,
+                },
+                success : function(response){
+				$('#loader_signemail').hide();
+                $("#semail").html(response);
+                    if(response == 'success'){
+                         
+                        $("#email1").addClass("valid").removeClass("invalid");
+                        $("#semail").removeClass("red-text").addClass("green-text").html("OK");;
+                        email = storeemail;
+                    }else if(response == 'fail'){
+                        $("#email1").addClass("invalid").removeClass("valid");
+                        $("#semail").addClass("red-text").removeClass("green-text").html("Already Registered");;
+             //           email = "0";
+                    }
+                    },
+                dataType : 'text',
+				error: function(){
+					$('#error_signemail').show();
+					$('#loader_signemail').hide();
+        			},
+				timeout: timeout
+            }
+            );
+                       
+        }else{
+            $("#semail").removeClass("green-text").html("Invalid Email").addClass("red-text");
+            $("#email1").removeClass("valid").addClass("invalid");
+            
+			$('#loader_signemail').hide();
+//             email = "";
+                
+            }
+        })
+//    End of signup email Validation
+    
+    //  Login Email Validation 
+    $("#email2").focusin(function(){
+		$("#email2").removeClass("invalid").removeClass("valid");
+            $("#lemail").html("");
+		$('#error_logemail').hide();
+		
+	})
+    $("#email2").focusout(function(){
+        $('#loader_logemail').show();
+		$('#error_logemail').hide();
+        var storeemail2 = $("#email2").val();
+        if(storeemail2.length == ""){
+            $("#email2").addClass("invalid").removeClass("valid");
+            $("#lemail").html("Please enter your email").removeClass("green-text").addClass("red-text");
+			$('#loader_logemail').hide();
+//            lemail = "";
+        }else if(email_reg.test(storeemail2)){
+            $("#lemail").html("");
+            $.ajax({
+               url : 'ajax/login.php',
+               method : 'POST',
+               data : {
+                 loginemail: storeemail2,
+                },
+                success : function(response){
+				$('#loader_logemail').hide();
+                $("#lemail").html(response);
+                    if(response == 'success'){
+                         $("#lemail").html("OK");
+                        $("#email2").addClass("valid").removeClass("invalid");
+                        $("#lemail").removeClass("red-text").addClass("green-text");
+                    }else if(response == 'fail'){
+                         $("#lemail").html("This Email is not registered");
+                        $("#email2").addClass("invalid").removeClass("valid");
+                        $("#lemail").addClass("red-text").removeClass("green-text");
+                    }
+                    },
+                dataType : 'text',
+				error: function(){
+					$('#loader_logemail').hide();
+					$('#error_logemail').show();
+				}, 
+				timeout: timeout
+            }
+            );
+                       
+        }else{
+            $("#lemail").removeClass("green-text").html("Invalid Email").addClass("red-text");;
+            $("#email2").removeClass("valid").addClass("invalid");
+          	$('#loader_logemail').hide();
+//             lemail = "";
+                
+            }
+        })
+//    End of login email Validation
+    
+    //    Password Validation 
+    $("#password").focusout(function(){
+        
+        var storepassword = $("#password").val();
+        if(storepassword.length == ""){
+            $("#password").addClass("invalid").removeClass("valid");
+            $("#lpassword").html("");
+//            password = "";
+        }else if(password_reg.test(storepassword)){
+            
+            $("#password").removeClass("invalid").addClass("valid");
+            $("#lpassword").html("");
+           
+            password = storepassword;
+           
+        }else{
+            $("#lpassword").html("");
+            $("#password").removeClass("valid").addClass("invalid");
+//             password = "";
+                
+            }
+        })
+//    End of Password Validation 
+    
+//    Signup Button onclick
+    $("#signupbtn").click(function(){
+		$("#signupbtn").addClass('disabled');
+		$('#loader_signemail').show();
+        $('#error_signemail').hide();
+		$('#loader_signup').show();	
+		$('#error_signup').hide();
+		email = $("#email1").val();
+		firstname = $("#firstname").val();
+		lastname = $("#surname").val();
+//   Check if fields are empty and alert user
+        if(firstname.length == ""){
+            $("#firstname").addClass("invalid").removeClass("valid");
+            $("#fname").html("Empty").removeClass("green-text").addClass("red-text");
+            Materialize.toast('First Name field is Empty',2500);
+			$('#loader_signup').hide();	
+			$("#signupbtn").removeClass('disabled');
+			$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+//            firstname = ""; 
+        }
+        if(lastname.length == ""){
+            $("#surname").addClass("invalid").removeClass("valid");
+            $("#sname").html("Empty").removeClass("green-text").addClass("red-text");
+            Materialize.toast('Surname field is Empty',2500);
+            $('#loader_signup').hide();	
+			$("#signupbtn").removeClass('disabled');
+			$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+//            lastname = "";
+        }
+        if(email.length == ""){
+             $("#email1").addClass("invalid").removeClass("valid");
+            $("#semail").html("Required").removeClass("green-text").addClass("red-text");
+            Materialize.toast('Email field is Required',2500);
+			$('#loader_signup').hide();	
+			$("#signupbtn").removeClass('disabled');
+			$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+//            email = "";
+        }
+        if(firstname.length != "" && firstname.length < 3){
+            $("#firstname").addClass("invalid").removeClass("valid");
+            $("#fname").html("Abc! >2").removeClass("green-text").addClass("red-text");
+            Materialize.toast('First Name - Letters Only - not less than 3',2500);
+			$('#loader_signup').hide();	
+			$("#signupbtn").removeClass('disabled');
+			$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+            
+        }
+        if(lastname.length != "" && lastname.length < 3){
+            $("#surname").addClass("invalid").removeClass("valid");
+            $("#sname").html("Abc! >2").removeClass("green-text").addClass("red-text");
+            Materialize.toast('SurName - Letters Only - not less than 3',2500);
+			$('#loader_signup').hide();	
+			$("#signupbtn").removeClass('disabled');
+			$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+            
+            
+        }
+//        
+//        
+//        if(firstname.length > 2 && lastname.length > 2 && email.length > 2){
+		
+		if(name_reg.test(firstname)){
+			if(name_reg.test(lastname)){
+				if(email_reg.test(email)){
+					gender = $("#gender").val();
+          var sfirstname = $("#firstname").val();
+            $.ajax({
+               url : 'ajax/signup.php',
+               method : 'POST',
+                dataType: 'text',
+               data : {
+                signupemail2 : email,
+                signupfirstname : firstname,
+                signupsurname : lastname,
+                signupgender : gender,
+                
+            },
+                success : function(response){
+					$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+					$('#loader_signup').hide();
+					$("#signupbtn").removeClass('disabled');
+					console.log(response);
+                    if(response == 'successful'){
+						
+                         Materialize.toast('Registeration Successful',500, 'rounded', function(){
+                             $('#modal1').modal('open');
+                            
+                         });
+                        
+                        $('#signupform')[0].reset();
+                        $("#successname").html(sfirstname);
+                        
+ //                       
+                    }else if(response == 'failed' || response == ''){
+                       Materialize.toast('This Email is already Registered',2500);
+                      
+                    }
+                    },
+				error : function(){
+					$('#loader_signup').hide();	
+					$('#error_signup').show();
+					$('#loader_signemail').hide();
+        $('#error_signemail').show();
+					$("#signupbtn").removeClass('disabled');
+				},
+				timeout : timeout
+                }
+            ); 
+				}else{
+					 Materialize.toast('Email Invalid',2500);
+					$('#loader_signup').hide();
+					$("#signupbtn").removeClass('disabled');
+					$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+				}
+			}else{
+				 Materialize.toast('Surname Invalid',2500);
+				$('#loader_signup').hide();
+				$("#signupbtn").removeClass('disabled');
+				$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+			}
+			
+		}else{
+			 Materialize.toast('First Name Invalid',2500);
+			$('#loader_signup').hide();
+			$("#signupbtn").removeClass('disabled');
+			$('#loader_signemail').hide();
+        $('#error_signemail').hide();
+		}
+			
+          
+         
+    })
+//    End of Signup Button onclick
+    
+        
+    //    Login Button onclick
+    $("#loginbtn").click(function(){
+	$("#loginbtn").addClass('disabled');
+       $('#loader_login').show();	
+       $('#error_login').hide();	
+       $('#error_logemail').hide();	
+        var loginemail2 = $('#email2').val();
+        var loginpassword = $('#password').val();
+        
+        if (loginemail2.length == ""){
+            Materialize.toast('Please enter your Email', 2500);
+            $("#email2").addClass("invalid").removeClass("valid");
+            $("#lemail").html("Please enter your email").removeClass("green-text").addClass("red-text");
+			$('#loader_login').hide();
+			$("#loginbtn").removeClass('disabled');
+        };
+        
+        if(loginpassword.length == ""){
+            Materialize.toast('Please enter your Password', 2500);
+            $("#password").addClass("invalid").removeClass("valid");
+            $("#lpassword").html("Enter your password").removeClass("green-text").addClass("red-text");
+			$('#loader_login').hide();	
+			$("#loginbtn").removeClass('disabled');
+            
+            };
+        if (loginpassword.length != "" && loginpassword.length < 6){
+            Materialize.toast('Password is too short', 2500);
+            $("#password").addClass("invalid").removeClass("valid");
+            $("#lpassword").html("Password too short").removeClass("green-text").addClass("red-text");
+			$('#loader_login').hide();	
+			$("#loginbtn").removeClass('disabled');
+            };
+        
+        if (loginemail2.length != "" && loginpassword.length > 5){
+            if(email_reg.test(loginemail2)){
+            if(password_reg.test(loginpassword)){
+				
+                
+                $.ajax({
+            method: 'POST',
+            url: 'ajax/login.php',
+            dataType: 'JSON',
+            data: {
+                loginemail2 : loginemail2,
+                loginpassword : loginpassword, 
+                        
+            },
+            success: function(data){
+				$("#loginbtn").removeClass('disabled');
+				$('#loader_login').hide();	
+                console.log(data);
+                if(data != ""){
+                    if(loginpassword == dfltpassword){
+                        $("#loginname").html(data.first_name);
+                        $("#lpassword").html("");
+                         Materialize.toast('Login Successful',500,'rounded', function(){
+                             $('#modal2').modal('open');
+                         });
+                    }else if(loginpassword != dfltpassword){
+                        $("#loginname2").html(data.first_name);
+                        $("#lpassword").html("");
+                         Materialize.toast('Login Successful',500,'rounded', function(){
+                             $('#modal3').modal('open');
+                         });
+                    };
+                    
+                   
+                                              
+                        $('#loginform')[0].reset();
+                        firstname="";
+                        lastname="";
+                        email="";
+                };
+                if(data == ""){
+					
+					Materialize.toast('Wrong Email & Password', 1500);
+                    $("#password").addClass("invalid").removeClass("valid");
+                    $("#lpassword").html("Wrong Password").removeClass("green-text").addClass("red-text");
+                    $("#lemail").html("").removeClass("green-text").addClass("red-text");
+           
+					
+                };
+            }, 
+			error: function(){
+				$('#error_login').show();
+				$('#loader_login').hide();
+				$('#error_logemail').show();	
+				$("#loginbtn").removeClass('disabled');
+			},
+			timeout : timeout
+        })
+                
+            }else{
+				$('#loader_login').hide();	
+				 Materialize.toast('Incorrect Email & Password', 2500);
+                $("#password").addClass("invalid");
+                $("#password").removeClass("valid");
+                $("#lpassword").html("Wrong Password");
+            $("#lpassword").removeClass("green-text");
+            $("#lpassword").addClass("red-text");
+				$("#loginbtn").removeClass('disabled');
+                }
+            
+        }else{
+			$('#loader_login').hide();	
+            Materialize.toast('Invalid Email', 2500);
+            $("#lemail").html("Invalid Email");
+            $("#lemail").removeClass("green-text");
+            $("#lemail").addClass("red-text");
+			$("#loginbtn").removeClass('disabled');
+        }
+        }
+        
+
+    })
+//    End of Login Button onclick
+	
+	
+	
+	
+	
+	
+	function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+		
+        console.log("ID: " + profile.getId()); // Don't send this directly t
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail()); 
+		$("#gglfname").html(profile.getGivenName()).val(profile.getGivenName());
+		$("#gglsuccessname").html(profile.getGivenName()).val(profile.getGivenName());
+		$("#ggllname").html(profile.getFamilyName()).val(profile.getFamilyName());
+		$("#gglemail").html(profile.getEmail()).val(profile.getEmail());
+		$("#gglimg").attr("src",profile.getImageUrl()).val(profile.getImageUrl());
+		$("#ggldetails").show();
+		
+		
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+		
+  };
+		
+ 	
+	
+	
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '900711343467672',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+      
+    
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+}); 
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+    function statusChangeCallback(response){
+    if(response.status === 'connected'){
+        console.log('logged in and authenticated');
+        testAPI();
+       
+       } else {
+           console.log('Not authenticated');
+       }
+    }
+    
+    
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+	  console.log(response);
+  });
+}
+    function testAPI(){
+        FB.api('/me?fields=name, email, gender', function(response){
+            if(response && !response.error){
+                console.log(response);
+                buildProfile(response);
+                
+            }
+        })
+    }
+    
+    function buildProfile(user){
+//        let profile = `
+//		<h3>${user.name}</h3>
+//		<h3>${user.email}</h3>
+//		<h3>${user.gender}</h3>
+//		<h3>${user.id}</h3>
+//			`;
+		
+        var fullname = user.name;
+        var names = fullname.split(" ");
+        var surname = names[0];
+        var firstname = names[1];
+        var userid = user.id;
+        var email = user.email;
+		var fbimg = "http://graph.facebook.com/" + user.id + "/picture?type=normal"
+        document.getElementById('fbprofile').innerHTML = firstname + surname + fbimg + userid + email;
+		$("#fbfname").html(firstname).val(firstname);
+		$("#fblname").html(surname).val(surname);
+		$("#fbemail").html(email).val(email);
+		$("#fbimg").attr("src",fbimg).val(fbimg);
+        $("#fbsuccessname").html(firstname);
+		$("#fbdetails").show();
+	
+	}
+
+    
+    function logout(){
+        FB.logout(function(response){
+        
+        })
+    }
+    function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+	
+	// Google Signin Button click
+	$("#gglsignin").click(function(){
+		$("#gglsignin").addClass('disabled');
+		var gglfname =  $("#gglfname").val();
+		var ggllname =  $("#ggllname").val();
+		var gglemail =  $("#gglemail").val();
+		var gglgender = $("#gglgender").val();
+		var gglimg = 	$("#gglimg").val();
+		var action = 'gglsignin';
+		console.log(gglfname+' '+ggllname+' '+gglemail+' '+gglgender+' '+gglimg+' '+action);
+		if(gglfname == "" || ggllname == "" || gglemail == "" || gglimg == ''){
+			
+			Materialize.toast('No Google Details',1500);
+			$("#gglsignin").removeClass('disabled');
+		} else {
+			
+		$('#loader_gglsignin').show();	
+		$('#error_gglsignin').hide();	
+		$.ajax({
+			url:'ajax/sociallogin.php',
+			method:'POST',
+			dataType:'JSON',
+			data:{action:action, 
+				 firstname:gglfname,
+				 lastname:ggllname,
+				 email:gglemail,
+				 gender:gglgender,
+				 profilepic:gglimg},
+			success:function(data){
+				$("#gglsignin").removeClass('disabled');
+				$('#loader_gglsignin').hide();
+				console.log(data);
+				if(data.response == "firsttime"){
+					 $("#loginname").html(data.first_name);
+					Materialize.toast("Signup Successful",1000,'rounded',function(){
+						$('#modal4').modal('close');
+						$('#modal2').modal('open');
+					});
+				}else if(data.response == "returnee"){
+					$("#loginname2").html(data.first_name);
+					Materialize.toast('Login Successful', 1000,'rounded',function(){
+						$('#modal4').modal('close');
+						$('#modal3').modal('open');
+					});
+				}else if (data == ""){
+					Materialize.toast('Something went wrong',2500);
+				}
+				
+			},
+			error: function(){
+				$('#loader_gglsignin').hide();	
+		$('#error_gglsignin').show();	
+		$("#gglsignin").addClass('disabled');
+			}, 
+			timeout : timeout
+			
+		}); }
+	});
+	
+	$("#gglcancel").click(function(){
+		Materialize.toast("Google Login Cancelled", 1500);
+		$('#loader_gglsignin').hide();	
+		$('#error_gglsignin').hide();	
+		$("#gglsignin").removeClass('disabled');
+	});
+	
+	$("#fbcancel").click(function(){
+		Materialize.toast("Facebook Login Cancelled", 1500);
+		$('#loader_fbsignin').hide();	
+		$('#error_fbsignin').hide();	
+		
+	});
+	
+	 
+    //  Signup Email Validation 
+    $("#fgtemail").focusin(function(){
+		$("#fgtemail").removeClass('valid').removeClass('invalid');
+			$("#fgtemail2").html('');
+		$('#loader_fgtemail').hide();
+		$('#error_fgtemail').hide();
+	})
+    $("#fgtemail").focusout(function(){
+		$('#loader_fgtemail').show();
+		$('#error_fgtemail').hide();
+        var email = $("#fgtemail").val();
+		var email_reg=/^[a-z]+(_|\.)?[a-z0-9]*@[a-z]+\.[a-z]{2,}$/i;
+		        
+       if(email_reg.test(email)){
+			
+			$("#fgtemail").addClass('valid').removeClass('invalid');
+			$("#fgtemail2").html('');
+			$('#loader_fgtemail').hide();
+		}else{
+			
+			$("#fgtemail").addClass('invalid').removeClass('valid');
+			$('#loader_fgtemail').hide();
+		}
+      })
+//    End of signup email Validation
+  
+	
+	$("#fgtemailbtn").click(function(){
+		$("#fgtemailbtn").addClass('disabled');
+		$('#loader_fgtemail').show();
+		$('#error_fgtemail').hide();
+		var email = $("#fgtemail").val();
+		var email_reg = /^[a-z]+(_|\.)?[a-z0-9]*@[a-z]+\.[a-z]{2,}$/i;
+		var action = "forgotemail";
+		if(email_reg.test(email)){
+			
+			$.ajax({
+				url:'ajax/matches.php',
+				method:'POST',
+				dataType:'text',
+				data:{action:action,
+					 email:email},
+				success:function(response){
+					$("#fgtemailbtn").removeClass('disabled');
+					$('#loader_fgtemail').hide();
+					console.log(response);
+					if(response == 'success'){
+						
+						Materialize.toast('Password Email Sent',1500);
+						$("#fgtemail").val('').addClass('valid');
+						$("#fgtemail2").html('Password Sent to Email').removeClass('red-text').addClass('green-text');
+					}else if(response == 'failed'){
+						Materialize.toast('Email Not Registered',1500);
+						$("#fgtemail").addClass('invalid').removeClass('valid');
+						$("#fgtemail2").html('Email Not Registered').removeClass('green-text').addClass('red-text');
+					}
+				},
+				error: function(){
+					$('#loader_fgtemail').hide();
+		$('#error_fgtemail').show();
+					$("#fgtemailbtn").removeClass('disabled');
+				}, 
+				timeout: timeout
+			})
+		
+			
+		}else{
+			Materialize.toast('Invalid Email',1500);
+			$("#fgtemail").addClass('invalid').removeClass('valid');
+			$("#fgtemail2").html('Invalid email').addClass('red-text').removeClass('green-text');
+			$("#fgtemailbtn").removeClass('disabled');
+			$('#loader_fgtemail').hide();
+		}
+		
+	})
+	$("#frgtpwdcancel").click(function(){
+		Materialize.toast('Forgot Password Closed',1500);
+		$("#fgtemail").removeClass('invalid').removeClass('valid').val('');
+		$("#fgtemail2").html('').removeClass('red-text').removeClass('green-text');
+		$("#fgtemailbtn").removeClass('disabled');
+		$('#loader_fgtemail').hide();
+		
+	});
+	
+	
+	
+	// Google Signin Button click
+	$("#fbsignin").click(function(){
+		var fbfname =  $("#fbfname").val();
+		var fblname =  $("#fblname").val();
+		var fbemail =  $("#fbemail").val();
+		var fbgender = $("#fbgender").val();
+		var fbimg = 	$("#fbimg").val();
+		var action = 'fbsignin';
+		console.log(fbfname+' '+fblname+' '+fbemail+' '+fbgender+' '+fbimg+' '+action);
+		if(fbfname == "" || fblname == "" || fbemail == "" || fbimg == ''){
+			Materialize.toast('No Facebook Details',1500);
+			
+		} else {
+			$('#loader_fbsignin').show();
+		$.ajax({
+			url:'ajax/sociallogin.php',
+			method:'POST',
+			dataType:'JSON',
+			data:{action:action, 
+				 firstname:fbfname,
+				 lastname:fblname,
+				 email:fbemail,
+				 gender:fbgender,
+				 profilepic:fbimg},
+			success:function(data){
+				$('#loader_fbsignin').hide();
+				console.log(data);
+				if(data.response == "firsttime"){
+					 $("#loginname").html(data.first_name);
+					Materialize.toast("Signup Successful",1000,'rounded',function(){
+						$('#modal5').modal('close');
+						$('#modal2').modal('open');
+					});
+				}else if(data.response == "returnee"){
+					$("#loginname2").html(data.first_name);
+					Materialize.toast('Login Successful', 1000,'rounded',function(){
+						$('#modal5').modal('close');
+						$('#modal3').modal('open');
+					});
+				}else if (data == ""){
+					Materialize.toast('Something went wrong',2500);
+				}
+				
+			}
+			
+		}); }
+	});
+	
+		
+	function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }	
+		$("#gglsignout").click(function(){
+			signOut();
+		})
+    
+	
+	
+    </script>
+    
+
+
+</body>
+
+</html>
