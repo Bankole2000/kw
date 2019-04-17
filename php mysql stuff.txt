@@ -1,0 +1,16 @@
+MySQL syntax
+
+Setting up Events
+
+SET GLOBAL event_scheduler="ON"
+
+insert query
+INSERT INTO `gw`.`user_table` (`user_id`, `first_name`, `last_name`, `email`, `password`, `phone_number`, `gender`, `user_location`, `bank`, `acc_number`, `don_balance`, `rec_balance`, `profile_pic`, `user_strikes`) VALUES (NULL, 'Johnson', 'Idowu', 'J.idowu@email.com', 'kobowise1234', '08012345678', 'Male', 'Kaduna', 'GTB', '0123456789', '1000000', '0', 'profilepic.jpg', '0');
+
+interest rate query
+UPDATE user_table SET rec_balance = (don_balance / 1000) + rec_balance
+
+To increase PHP Maximum File allowed Upload Size - Add the following lines to .htaccess 
+
+php_value post_max_size 5M
+php_value upload_max_filesize 5M
